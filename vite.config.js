@@ -1,29 +1,8 @@
-import { defineConfig } from 'vite';
-import path from 'path'; 
-import process from 'process';
-import react from '@vitejs/plugin-react-swc';
-import { createRequire } from 'module'
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
 
-const require = createRequire(import.meta.url)
-
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/railwayBack/', 
-  resolve: {
-    alias: {
-      process: require.resolve('process/browser'),
-      stream: require.resolve('stream-browserify'),
-      util: require.resolve('util'),
-    },
-  },
-  define: {
-    'process.env': {}, // evita errores de process.env
-  },
-  server: {
-    proxy: {
-      '/login': 'http://localhost:3000',
-      '/users': 'http://localhost:3000',
-    },
-  },
-});
-
+  base:'/Frontt/'
+})
